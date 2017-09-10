@@ -5,6 +5,11 @@ public abstract class Weapon {
 	private int defensePower;
 	private int attackRange;
 	
+	public Weapon(int attackPower, int defensePower, int attackRange) {
+		this.attackPower = attackPower;
+		this.defensePower = defensePower;
+		this.attackRange = attackRange;
+	}
 	public int getAttackPower() {
 		return attackPower;
 	}

@@ -7,6 +7,11 @@ public abstract class Player {
 	private String username;
 	private Weapon weapon;
 	
+	public Player(String username, Weapon weapon) {
+		this.username = username;
+		this.weapon = weapon;
+		this.healthPoints = 100;
+	}
 	public Weapon getWeapon() {
 		return weapon;
 	}
