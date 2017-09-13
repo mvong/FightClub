@@ -1,5 +1,7 @@
 package game_logic;
 
+import java.util.HashMap;
+
 import player.Player;
 import player.Warrior;
 import weapon.Weapon;
@@ -7,11 +9,13 @@ import weapon.Weapon;
 public class GamePlay {
 	private GameState gameState;
 	private Player player;
+	private HashMap<String, Warrior> enemyList;
 	
 	public void startGame() {
 		String username = InputHelper.readInput("Please enter a username for your character.");
 		this.player = new Warrior(username, null, PlayerState.IDLE);
 		this.gameState = GameState.VIEW_MENU;
+		enemyList = new HashMap<String, Warrior>();
 		printMenuOptions();
 	}
 	

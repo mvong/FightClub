@@ -1,19 +1,30 @@
 package player;
 
+import java.util.ArrayList;
+
 import game_logic.PlayerState;
+import items.Item;
 import weapon.Weapon;
 
-public abstract class Player {
+public class Player implements Action{
 	private int healthPoints;
 	private String username;
 	private Weapon weapon;
 	private PlayerState playerState;
+	private ArrayList<Item> backpack;	
 	
 	public Player(String username, Weapon weapon, PlayerState playerState) {
 		this.username = username;
 		this.weapon = weapon;
 		this.playerState = playerState;
 		this.healthPoints = 100;
+		this.backpack = new ArrayList<Item>();
+	}
+	public void Attack() {
+		
+	}
+	public void UseItem() {
+		
 	}
 	public PlayerState getPlayerState() {
 		return this.playerState;
