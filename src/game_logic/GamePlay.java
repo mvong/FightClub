@@ -19,7 +19,8 @@ public class GamePlay {
 		this.player = new Warrior(username, null, PlayerState.IDLE);
 		this.gameState = GameState.VIEW_MENU;
 		enemyList = new HashMap<String, Warrior>();
-		printMenuOptions();
+		String inputString = InputHelper.readInput(printMenuOptions());
+		InputHelper.parseInput(inputString);
 	}
 	
 	public Player getPlayer() {
@@ -31,7 +32,7 @@ public class GamePlay {
 	}
 	
 	// Print menu of options
-	private void printMenuOptions() {
+	private String printMenuOptions() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Welcome to Fight Club!" );
 		sb.append("\nPlease choose from the following menu options: ");
@@ -39,7 +40,7 @@ public class GamePlay {
 				+ "\n\t 2. View your items."
 				+ "\n\t 3. Use one of your items."
 				+ "\n\t 4. Exit.");
-		System.out.println(sb.toString());
+		return sb.toString();
 	}
 	
 	public static void main(String args[]) {
