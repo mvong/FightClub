@@ -1,11 +1,13 @@
-package weapon;
+package items;
 
-public abstract class Weapon {
+// Weapon class extending from item
+public class Weapon extends Item {
 	private int attackPower;
 	private int defensePower;
 	private int attackRange;
 	
-	public Weapon(int attackPower, int defensePower, int attackRange) {
+	public Weapon(int attackPower, int defensePower, int attackRange, String description) {
+		super(description);
 		this.attackPower = attackPower;
 		this.defensePower = defensePower;
 		this.attackRange = attackRange;

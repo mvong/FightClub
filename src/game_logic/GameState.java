@@ -1,5 +1,6 @@
 package game_logic;
 
+// Enum for state of the game
 public enum GameState {
 	FIGHT_MONSTERS("Player is fighting a monster."), 
 	VIEW_ITEMS("Player is viewing his items."), 

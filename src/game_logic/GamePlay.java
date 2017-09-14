@@ -2,15 +2,18 @@ package game_logic;
 
 import java.util.HashMap;
 
+import items.Weapon;
 import player.Player;
 import player.Warrior;
-import weapon.Weapon;
 
+// Initiates game play
 public class GamePlay {
 	private GameState gameState;
 	private Player player;
+	// Map of enemies
 	private HashMap<String, Warrior> enemyList;
 	
+	// Begin the game
 	public void startGame() {
 		String username = InputHelper.readInput("Please enter a username for your character.");
 		this.player = new Warrior(username, null, PlayerState.IDLE);
@@ -27,6 +30,7 @@ public class GamePlay {
 		return this.gameState;
 	}
 	
+	// Print menu of options
 	private void printMenuOptions() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Welcome to Fight Club!" );

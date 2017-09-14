@@ -1,5 +1,6 @@
 package game_logic;
 
+// Enum for state of the player
 public enum PlayerState {
 	IDLE("Player is idle."),
 	ATTACKING("Player is attacking."),
