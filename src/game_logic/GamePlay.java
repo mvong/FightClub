@@ -18,7 +18,7 @@ public class GamePlay {
 	// Begin the game
 	public void startGame() {
 		String username = InputHelper.readInput("Please enter a username for your character.");
-		this.player = new Warrior(username, null, PlayerState.IDLE);
+		this.player = new Warrior(username, new Weapon(50, 10, 0, "sword"), PlayerState.IDLE);
 		this.gameState = GameState.VIEW_MENU;
 		playGame();
 	}
@@ -46,7 +46,7 @@ public class GamePlay {
 	// Print menu of options
 	private String printMenuOptions() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("\nWelcome to Fight Club!" );
+		sb.append("\nWelcome to Fight Club, " + this.player.getUsername() + "!");
 		sb.append("\nPlease choose from the following menu options: ");
 		sb.append("\n\t 1. Fight randomly generated enemies."
 				+ "\n\t 2. View your items."

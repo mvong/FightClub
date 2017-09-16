@@ -4,31 +4,41 @@ import java.util.ArrayList;
 
 import game_logic.PlayerState;
 import items.Item;
+import items.Potion;
 import items.Weapon;
 
 // Base player class implementing action interface
-public class Player implements Action{
+public class Player extends Character implements Action{
 	
-	private int healthPoints;
 	private String username;
 	private Weapon weapon;
 	private PlayerState playerState;
 	// List of items
-	private ArrayList<Item> backpack;	
+	private ArrayList<Item> itemList;	
 	
 	public Player(String username, Weapon weapon, PlayerState playerState) {
 		this.username = username;
 		this.weapon = weapon;
 		this.playerState = playerState;
-		this.healthPoints = 100;
-		this.backpack = new ArrayList<Item>();
+		this.setHealthPoints(100);
+		this.itemList = new ArrayList<Item>();
+		for(int i = 0 ; i < 5 ; i++) {
+			itemList.add(new Potion("Potion " + (i+1)));
+		}
 	}
 	// Player attack method
-	public void Attack() {
-		
+	public void Attack(Character character) {
+		if(character instanceof Enemy) {
+			Enemy enemy = (Enemy)character;
+			enemy.setHealthPoints(enemy.getHealthPoints() - this.weapon.getAttackPower());
+		} 
 	}
 	// Player use item method
-	public void UseItem() {
+	public void UseItem(Item item) {
+		if(item instanceof Potion) {
+			Potion potion = (Potion)item;
+			this.setHealthPoints(this.getHealthPoints() + potion.getAmount());
+		}
 		
 	}
 	public PlayerState getPlayerState() {
@@ -43,17 +53,14 @@ public class Player implements Action{
 	public void setWeapon(Weapon weapon) {
 		this.weapon = weapon;
 	}
-	public int getHealthPoints() {
-		return healthPoints;
-	}
-	public void setHealthPoints(int healthPoints) {
-		this.healthPoints = healthPoints;
-	}
 	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public ArrayList<Item> getItemList() {
+		return this.itemList;
 	}
 	
 	

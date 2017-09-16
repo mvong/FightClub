@@ -28,11 +28,26 @@ public class InputHelper {
 				}
 				break;
 			case "2":
-				System.out.println("No items to view!");
+				if(gamePlay.getPlayer().getItemList().size() > 0) {
+					System.out.println("You have " + gamePlay.getPlayer().getItemList().size() + " items!");
+				}
+				else {
+					System.out.println("You have no items to view.");
+				}
 				gamePlay.setGameState(GameState.VIEW_ITEMS);
 				break;
 			case "3":
-				System.out.println("No items to use!");
+				if(gamePlay.getPlayer().getItemList().size() == 0) {
+					System.out.println("You have no items to use!");
+				}
+				else {
+					StringBuilder sb = new StringBuilder("You have the following items: ");
+					for(int i = 0 ; i < gamePlay.getPlayer().getItemList().size(); i++) {
+						sb.append("\n\t"+(i+1)+": "+gamePlay.getPlayer().getItemList().get(i).getDescription());
+					}
+					sb.append("\nWhich ones will you use?");
+					System.out.println(sb.toString());
+				}
 				gamePlay.setGameState(GameState.USE_ITEM);
 				break;
 			case "4":

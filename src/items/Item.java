@@ -1,5 +1,7 @@
 package items;
 
+
+
 // Abstract item class, all items must have a description/name
 public abstract class Item {
 	private String description;
