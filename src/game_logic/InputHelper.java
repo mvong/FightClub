@@ -18,18 +18,27 @@ public class InputHelper {
 	
 	public static void parseInput(String option, GamePlay gamePlay) {
 		switch(option) {
+			// Player wants to fight enemies
+			// Set player state
 			case "1" : 
+				// Generate random number of enemies
 				gamePlay.setEnemyMap(EnemyController.createEnemies());
+				// If there are enemies, print out the number
 				if(gamePlay.getEnemyMap().size() > 0) {
 					System.out.println("There are " + gamePlay.getEnemyMap().size() + " enemies! Attack them to survive.");
 					gamePlay.getPlayer().setPlayerState(PlayerState.ATTACKING);
-				} else {
+				}
+				// No enemies to attack
+				else {
 					System.out.println("There are no enemies to attack!");
 					gamePlay.getPlayer().setPlayerState(PlayerState.IDLE);
 				}
+				// Set the game state
 				gamePlay.setGameState(GameState.FIGHT_MONSTERS);
 				break;
+			// Player wants to view items	
 			case "2":
+				// If player has items, print them
 				if(gamePlay.getPlayer().getItemList().size() > 0) {
 					StringBuilder sb = new StringBuilder("You have the following " + gamePlay.getPlayer().getItemList().size() + " items: ");
 					for(int i = 1 ; i <= gamePlay.getPlayer().getItemList().size(); i++) {
@@ -40,10 +49,13 @@ public class InputHelper {
 				else {
 					System.out.println("You have no items to view.");
 				}
+				// Set game state and player state
 				gamePlay.setGameState(GameState.VIEW_ITEMS);
 				gamePlay.getPlayer().setPlayerState(PlayerState.IDLE);
 				break;
+			// Player wants to use items
 			case "3":
+				// No items to use
 				if(gamePlay.getPlayer().getItemList().size() == 0) {
 					System.out.println("You have no items to use!");
 				}
@@ -55,15 +67,19 @@ public class InputHelper {
 					sb.append("\nWhich ones will you use?");
 					System.out.println(sb.toString());
 				}
+				// Set game state and player state
 				gamePlay.setGameState(GameState.USE_ITEM);
 				gamePlay.getPlayer().setPlayerState(PlayerState.IDLE);
 				break;
+			// Player wants to quit
 			case "4":
+				//Set game and player states
 				System.out.println("Bye, thanks for playing!");
 				gamePlay.getPlayer().setPlayerState(PlayerState.IDLE);
 				gamePlay.setGameState(GameState.EXIT_GAME);
 				sc.close();
 				break;
+			// Exit
 			default:
 				System.exit(1);
 		}

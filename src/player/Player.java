@@ -23,6 +23,7 @@ public class Player extends Character implements Action{
 		this.playerState = playerState;
 		this.setHealthPoints(100);
 		this.itemList = new ArrayList<Item>();
+		// Generate random number of potions for player
 		for(int i = 1 ; i <= new Random().nextInt(10) ; i++) {
 			itemList.add(new Potion("Potion " + (i)));
 		}

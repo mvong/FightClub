@@ -6,7 +6,7 @@ import java.util.Random;
 import player.Enemy;
 
 public class EnemyController {
-	
+	// Generate random number (0 - 5) of enemies
 	public static HashMap<Integer, Enemy> createEnemies() {
 		int numEnemies = new Random().nextInt(5);
 		HashMap<Integer, Enemy> enemyMap = new HashMap<Integer, Enemy>();

@@ -57,11 +57,18 @@ public class GamePlay {
 		String inputString = "";
 		while(!inputString.equalsIgnoreCase("4")) {
 			inputString = InputHelper.readInput(printMenuOptions());
-			InputHelper.parseInput(inputString, this);
-			// Print out the game state after every input
-			System.out.println("GAME STATE: " + this.gameState.getDescription());
-			System.out.println("PLAYER STATE: " + this.player.getPlayerState().getDescription());
+			// If valid input, parse it
+			if(inputString.equals("1") || inputString.equals("2") || inputString.equals("3") || inputString.equals("4")) {
+				InputHelper.parseInput(inputString, this);
+				// Print out the game state after every input
+				System.out.println("GAME STATE: " + this.gameState.getDescription());
+				System.out.println("PLAYER STATE: " + this.player.getPlayerState().getDescription());
+			}
+			else {
+				System.out.println("Enter a valid input.");
+			}
 		}
+		
 	}
 	public static void main(String args[]) {
 		new GamePlay().startGame();
