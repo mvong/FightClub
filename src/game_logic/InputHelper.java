@@ -22,19 +22,26 @@ public class InputHelper {
 				gamePlay.setEnemyMap(EnemyController.createEnemies());
 				if(gamePlay.getEnemyMap().size() > 0) {
 					System.out.println("There are " + gamePlay.getEnemyMap().size() + " enemies! Attack them to survive.");
-					gamePlay.setGameState(GameState.FIGHT_MONSTERS);
+					gamePlay.getPlayer().setPlayerState(PlayerState.ATTACKING);
 				} else {
 					System.out.println("There are no enemies to attack!");
+					gamePlay.getPlayer().setPlayerState(PlayerState.IDLE);
 				}
+				gamePlay.setGameState(GameState.FIGHT_MONSTERS);
 				break;
 			case "2":
 				if(gamePlay.getPlayer().getItemList().size() > 0) {
-					System.out.println("You have " + gamePlay.getPlayer().getItemList().size() + " items!");
+					StringBuilder sb = new StringBuilder("You have the following " + gamePlay.getPlayer().getItemList().size() + " items: ");
+					for(int i = 1 ; i <= gamePlay.getPlayer().getItemList().size(); i++) {
+						sb.append("\n\t"+i+": "+gamePlay.getPlayer().getItemList().get(i-1).getDescription());
+					}
+					System.out.println(sb.toString());
 				}
 				else {
 					System.out.println("You have no items to view.");
 				}
 				gamePlay.setGameState(GameState.VIEW_ITEMS);
+				gamePlay.getPlayer().setPlayerState(PlayerState.IDLE);
 				break;
 			case "3":
 				if(gamePlay.getPlayer().getItemList().size() == 0) {
@@ -42,24 +49,23 @@ public class InputHelper {
 				}
 				else {
 					StringBuilder sb = new StringBuilder("You have the following items: ");
-					for(int i = 0 ; i < gamePlay.getPlayer().getItemList().size(); i++) {
-						sb.append("\n\t"+(i+1)+": "+gamePlay.getPlayer().getItemList().get(i).getDescription());
+					for(int i = 1 ; i <= gamePlay.getPlayer().getItemList().size(); i++) {
+						sb.append("\n\t"+i+": "+gamePlay.getPlayer().getItemList().get(i-1).getDescription());
 					}
 					sb.append("\nWhich ones will you use?");
 					System.out.println(sb.toString());
 				}
 				gamePlay.setGameState(GameState.USE_ITEM);
+				gamePlay.getPlayer().setPlayerState(PlayerState.IDLE);
 				break;
 			case "4":
-				System.out.println("Bye");
+				System.out.println("Bye, thanks for playing!");
+				gamePlay.getPlayer().setPlayerState(PlayerState.IDLE);
 				gamePlay.setGameState(GameState.EXIT_GAME);
+				sc.close();
 				break;
 			default:
 				System.exit(1);
 		}
-	}
-	
-	public static void closeScanner() {
-		sc.close();
 	}
 }

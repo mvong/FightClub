@@ -1,12 +1,10 @@
 package game_logic;
 
 import java.util.HashMap;
-import java.util.HashSet;
 
 import items.Weapon;
 import player.Enemy;
 import player.Player;
-import player.Warrior;
 
 // Initiates game play
 public class GamePlay {
@@ -18,7 +16,7 @@ public class GamePlay {
 	// Begin the game
 	public void startGame() {
 		String username = InputHelper.readInput("Please enter a username for your character.");
-		this.player = new Warrior(username, new Weapon(50, 10, 0, "sword"), PlayerState.IDLE);
+		this.player = new Player(username, new Weapon(50, 10, 0, "sword"), PlayerState.IDLE);
 		this.gameState = GameState.VIEW_MENU;
 		playGame();
 	}
@@ -61,9 +59,9 @@ public class GamePlay {
 			inputString = InputHelper.readInput(printMenuOptions());
 			InputHelper.parseInput(inputString, this);
 			// Print out the game state after every input
-			System.out.println(this.gameState.getDescription());
+			System.out.println("GAME STATE: " + this.gameState.getDescription());
+			System.out.println("PLAYER STATE: " + this.player.getPlayerState().getDescription());
 		}
-		InputHelper.closeScanner();
 	}
 	public static void main(String args[]) {
 		new GamePlay().startGame();

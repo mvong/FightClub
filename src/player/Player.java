@@ -1,6 +1,7 @@
 package player;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import game_logic.PlayerState;
 import items.Item;
@@ -22,10 +23,11 @@ public class Player extends Character implements Action{
 		this.playerState = playerState;
 		this.setHealthPoints(100);
 		this.itemList = new ArrayList<Item>();
-		for(int i = 0 ; i < 5 ; i++) {
-			itemList.add(new Potion("Potion " + (i+1)));
+		for(int i = 1 ; i <= new Random().nextInt(10) ; i++) {
+			itemList.add(new Potion("Potion " + (i)));
 		}
 	}
+	
 	// Player attack method
 	public void Attack(Character character) {
 		if(character instanceof Enemy) {
