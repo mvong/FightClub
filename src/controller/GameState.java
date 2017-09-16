@@ -1,4 +1,4 @@
-package game_logic;
+package controller;
 
 // Enum for state of the game
 public enum GameState {

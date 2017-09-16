@@ -1,8 +1,8 @@
-package game_logic;
+package controller;
 
 import java.util.HashMap;
 
-import items.Weapon;
+import model.Weapon;
 import player.Enemy;
 import player.Player;
 

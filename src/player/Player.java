@@ -3,10 +3,10 @@ package player;
 import java.util.ArrayList;
 import java.util.Random;
 
-import game_logic.PlayerState;
-import items.Item;
-import items.Potion;
-import items.Weapon;
+import controller.PlayerState;
+import model.Item;
+import model.Potion;
+import model.Weapon;
 
 // Base player class implementing action interface
 public class Player extends Character implements Action{

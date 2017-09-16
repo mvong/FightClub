@@ -1,4 +1,4 @@
-package game_logic;
+package controller;
 
 import java.util.HashMap;
 import java.util.Random;

@@ -1,6 +1,6 @@
 package player;
 
-import items.Item;
+import model.Item;
 
 // Action interface all players must implement
 public interface Action {

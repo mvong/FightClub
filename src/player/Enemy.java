@@ -1,6 +1,6 @@
 package player;
 
-import items.Item;
+import model.Item;
 
 public class Enemy extends Character implements Action {
 	

@@ -1,7 +1,7 @@
 package player;
 
-import game_logic.PlayerState;
-import items.Weapon;
+import controller.PlayerState;
+import model.Weapon;
 
 public class Warrior extends Player {
 

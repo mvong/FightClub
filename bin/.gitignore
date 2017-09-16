@@ -1,4 +1,6 @@
 /game_logic/
-/player/
-/weapon/
 /items/
+/player/
+/model/
+/view/
+/controller/

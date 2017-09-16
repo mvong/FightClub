@@ -1,4 +1,4 @@
-package items;
+package model;
 
 
 // Weapon class extending from item
