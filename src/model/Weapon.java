@@ -1,5 +1,11 @@
 package model;
 
+/*
+ * Alex Man, Mark Vong
+ * ITP 368
+ * 9/17/2017
+ * Hwk 4
+ */
 
 // Weapon class extending from item
 public class Weapon extends Item {

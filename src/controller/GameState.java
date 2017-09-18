@@ -1,5 +1,12 @@
 package controller;
 
+/*
+ * Alex Man, Mark Vong
+ * ITP 368
+ * 9/17/2017
+ * Hwk 4
+ */
+
 // Enum for state of the game
 public enum GameState {
 	FIGHT_MONSTERS("Player is fighting a monster."), 
